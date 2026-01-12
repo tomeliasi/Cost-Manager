@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>idb.js Quick Test</title>
+</head>
+<body>
+  <h2>idb.js Quick Test</h2>
+  <script src="idb.js"></script>
+  <script>
+    async function run() {
+      const db = await idb.openCostsDB("costsdb", 1);
+
+      // Optional: set rates explicitly (can also be fetched from /rates.json)
+      // idb.setRates({USD:1, GBP:0.6, EURO:0.7, ILS:3.4});
+
+      const r1 = await db.addCost({ sum: 200, currency: "USD", category: "FOOD", description: "pizza" });
+      const r2 = await db.addCost({ sum: 120, currency: "GBP", category: "EDUCATION", description: "Zoom License" });
+
+      console.log("Added:", r1, r2);
+
+      const now = new Date();
+      const report = await db.getReport(now.getFullYear(), now.getMonth() + 1, "USD");
+      console.log("Report:", report);
+    }
+    run();
+  </script>
+</body>
+</html>
