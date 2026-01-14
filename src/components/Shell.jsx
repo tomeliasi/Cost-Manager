@@ -15,7 +15,7 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
 import PieChartIcon from '@mui/icons-material/PieChart';
 import SettingsIcon from '@mui/icons-material/Settings';
-import Logo from '../assets/logo.png';
+import Logo from '../assets/Logo.png';
 const drawerWidth = 250;
 
 const nav = [
