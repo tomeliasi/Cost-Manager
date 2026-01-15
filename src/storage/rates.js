@@ -1,10 +1,5 @@
-/**
- * Fetch exchange rates (via Fetch API) from a URL.
- * Expected JSON: {"USD":1,"GBP":0.6,"EURO":0.7,"ILS":3.4}
- * Meaning: 1 USD = rate units of currency (e.g., ILS 3.4 = USD 1)
- */
 export async function fetchRates(url) {
-  const res = await fetch(url, { cache: 'no-store' });
+  const res = await fetch(url, { cache: "no-store" });
   if (!res.ok) {
     throw new Error(`Failed to fetch rates (${res.status})`);
   }
@@ -14,9 +9,13 @@ export async function fetchRates(url) {
 }
 
 export function validateRates(data) {
-  const required = ['USD', 'ILS', 'GBP', 'EURO'];
+  const required = ["USD", "ILS", "GBP", "EURO"];
   required.forEach((k) => {
-    if (typeof data?.[k] !== 'number' || !Number.isFinite(data[k]) || data[k] <= 0) {
+    if (
+      typeof data?.[k] !== "number" ||
+      !Number.isFinite(data[k]) ||
+      data[k] <= 0
+    ) {
       throw new Error(`Invalid rate for ${k}`);
     }
   });
@@ -31,7 +30,7 @@ export function convert(amount, from, to, rates) {
   const fromRate = rates[from];
   const toRate = rates[to];
   if (!fromRate || !toRate) {
-    throw new Error('Unsupported currency');
+    throw new Error("Unsupported currency");
   }
   const usd = amount / fromRate;
   return usd * toRate;
