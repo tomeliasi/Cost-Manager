@@ -1,29 +1,28 @@
-# Cost Manager (Front-End) — React + MUI + IndexedDB
+# Cost Manager — Front-End
 
-A distinct UI + code structure implementation that satisfies the course requirements:
-- IndexedDB database (client-side)
-- Promise-based idb wrapper (module version in React + vanilla version for submission)
-- Add cost items (sum/currency/category/description) with automatic date (day added)
-- Monthly report (month/year + target currency)
-- Pie chart (month/year totals by category)
-- Bar chart (12 months totals in selected year)
-- Supported currencies: USD, ILS, GBP, EURO
-- Exchange rates fetched from server using Fetch API
-- Settings screen to override exchange rates URL
-- Default rates URL works even if user does not configure settings
+Cost Manager is a front-end expense management application developed to meet academic course requirements, with a focus on clean architecture, client-side data handling, and data visualization.
 
-## Run
-```bash
-npm install
-npm run dev
-```
+## Overview
+The application allows users to add and manage personal expenses, store data locally in the browser, and view monthly and yearly reports grouped by categories and currencies.
 
-## Build
-```bash
-npm run build
-npm run preview
-```
+## Key Features
+- Client-side data persistence using **IndexedDB**
+- Promise-based IndexedDB wrapper (idb)
+- Add expense items with amount, currency, category, description, and automatic date
+- Monthly expense reports by month and year
+- Currency conversion between USD, ILS, GBP, and EUR
+- Data visualization:
+  - Pie chart showing monthly totals by category
+  - Bar chart showing yearly totals across 12 months
+- Exchange rates fetched from an external source using the Fetch API
+- Settings screen for overriding the exchange rates source
+- Default exchange rates available without user configuration
 
-## Default exchange rates
-`/public/rates.json` → available as `/rates.json` after deployment.
-"# Cost-Manager" 
+## Technologies
+- React
+- Material UI (MUI)
+- IndexedDB
+- Fetch API
+- Chart-based data visualization
+
+This project is fully client-side and does not include a backend. It demonstrates local data storage, asynchronous APIs, and visual representation of financial data.
